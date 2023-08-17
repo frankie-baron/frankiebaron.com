@@ -1,51 +1,69 @@
-<html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>frankiebaron.com</title>
-<link rel='stylesheet' href='styles.css'>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frankiebaron.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
+
 <body>
-<canvas id='bubbles'></canvas>
-<div id='content'>
-<h1><span class='yellow'>frankie</span><span class='red'>baron</span><span class='blue'>.com</span></h1>
-<img src='avatar.png' alt='Avatar' class='avatar-image'>
-<section class='about-section'>
-<h2 class='yellow'>About me</h2>
-<p>I create iOS applications since 2019.</p>
-<p>I am passionate about software development, art and creativity.</p>
-<p>I believe in life long learning and exploration (=expansion) of this amazing world of countless possibilities.</p>
-<p>Some say that creativity can cure even death. I do agree.</p>
-<p>iOS has been a cosy playground since I bought my first iPhone 3G.</p>
-<p>This realm was always a truly welcoming space to me.</p>
-<p>These days my whole adult life revolves around professional iOS development.</p>
-<p>I aim to contribute to the emergence of something outstanding and meaningful.</p>
-<p>Whereas it is a new groundbreaking app, new technology, a product or a solution.</p>
-<p>I enjoy working remotely and people matter to me the most.</p>
-<p>I love experiencing and I love pursuing.</p>
-<p>I honestly feel a global citizen and traveling is deep within my nature.</p>
-<p>..and one more thing.</p>
-<p>Life is easy if you care.</p>
-<p class='emoji'>✌🏿</p>
-</section>
-<section>
-<h2 class='blue'>My contributions</h2>
-</section>
-<section>
-<h2 class='red'>Contact me</h2>
-<div class='icons'>
-<a href='#'><img src='logoLinkedIn.png'></a>
-<a href='#'><img src='logoTwitter.png'></a>
-<a href='#'><img src='logoGitHub.png'></a>
-</div>
-</section>
-<footer>
-<img src='logoFooter.png' alt='Footer Logo'>
-<p>&#169;<span class='year'>2023</span></p>
-</footer>
-</div>
-<script src='script.js'></script>
+    <div class="container">
+        <canvas id="bubbles"></canvas>
+
+        <div id="content">
+            <h1>
+                <span class="yellow">frankie</span><span class="red">baron</span><span class="blue">.com</span>
+            </h1>
+
+            <!-- <img src="avatar.png" alt="Avatar" class="avatar-image"> -->
+
+            <section class="about-section">
+                <h2 class="yellow">About me</h2>
+                <!-- The repeated use of <p> tags is fine here as it represents separate thoughts -->
+                <p>I create iOS applications since 2019.</br>
+                    I am passionate about software development, art, and creativity.</br>
+                    I believe in lifelong learning and exploration (=expansion) of this amazing world of countless
+                    possibilities.</br>
+                    Some say that creativity can cure even death. I do agree.</p>
+                <p>iOS has been a cozy playground since I bought my first iPhone 3G.</br>
+                    This realm was always a truly welcoming space to me.</p>
+                <p>These days my whole adult life revolves around professional iOS development</br>
+                    I aim to contribute to the emergence of something outstanding and meaningful.</br>
+                    Whereas it is a new groundbreaking app, new technology, a product, or a solution.</p>
+                <p>I enjoy working remotely and people matter to me the most.</br>
+                    I love experiencing and I love pursuing.</br>
+                    I honestly feel a global citizen and traveling is deep within my nature.</p>
+                <p>..and one more thing.</br>
+                    Life is easy if you care.</p>
+                <p class="emoji">✌🏿</p>
+            </section>
+
+            <section>
+                <h2 class="blue">My contributions</h2>
+                <!-- You may want to add content here later -->
+            </section>
+
+            <section>
+                <h2 class="red">Contact me</h2>
+
+                <div class="icons">
+                    <a href="#"><img src="logoLinkedIn.png" alt="LinkedIn Logo"></a>
+                    <a href="#"><img src="logoTwitter.png" alt="Twitter Logo"></a>
+                    <a href="#"><img src="logoGitHub.png" alt="GitHub Logo"></a>
+                </div>
+            </section>
+
+            <footer>
+                <img src="logoFooter.png" alt="Footer Logo">
+                <p>&#169;<span class="year">2023</span></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
