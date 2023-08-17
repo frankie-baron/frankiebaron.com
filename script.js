@@ -3,7 +3,7 @@ let bubbles = [];
 class Bubble {
     constructor(color, y) {
         this.x = random(width);
-        this.y = random(-height, height);
+        this.y = random(0, height);
         this.diameter = random(10, 100);
         this.speed = random(1, 3);
         this.color = color;
@@ -25,8 +25,11 @@ class Bubble {
 }
 
 function setup() {
-    const canvas = createCanvas(windowWidth, windowHeight);
+    const contentHeight = document.getElementById('content').scrollHeight;
+    const contentWidth = document.getElementById('content').offsetWidth;
+    let canvas = createCanvas(contentWidth, contentHeight);
     canvas.id('bubbles');
+    canvas.parent('content');
     for (let i = 0; i < 12; i++) {
         bubbles.push(new Bubble(color('#e9a651')));
         bubbles.push(new Bubble(color('#9c2834')));
@@ -43,5 +46,7 @@ function draw() {
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    const contentHeight = document.getElementById('content').scrollHeight;
+    const contentWidth = document.getElementById('content').offsetWidth;
+    resizeCanvas(contentWidth, contentHeight);
 }

@@ -1,5 +1,11 @@
-body {
+
+html, body {
     margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll if there's any */
+}
+
+body {
     background-color: #fffbe2;
 }
 
@@ -10,6 +16,7 @@ body {
 
 #content {
     position: relative;
+    overflow: hidden;
     z-index: 2;
     text-align: center;
     font-family: 'Menlo', sans-serif;
@@ -19,12 +26,12 @@ body {
 }
 
 #bubbles {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
     pointer-events: none;
 }
 
