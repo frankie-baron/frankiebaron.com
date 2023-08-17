@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frankiebaron.com</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="slider.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 
@@ -17,7 +18,7 @@
                 <span class="yellow">frankie</span><span class="red">baron</span><span class="blue">.com</span>
             </h1>
 
-            <!-- <img src="avatar.png" alt="Avatar" class="avatar-image"> -->
+            <!-- <img src="images/avatar.png" alt="Avatar" class="avatar-image"> -->
 
             <section class="about-section">
                 <h2 class="yellow">About me</h2>
@@ -42,27 +43,60 @@
 
             <section>
                 <h2 class="blue">My contributions</h2>
-                <!-- You may want to add content here later -->
+                <div class="iphone-slider">
+                    <img src="images/slider/sliderFrame.png" class="slider-frame" alt="Slider Frame">
+                    
+                    <div class="slider-content">
+                        <div class="slider-icon-container">
+                            <div class="slider-icon" data-icon-name="Scoop">
+                                <img src="images/slider/iconScoopMono.png" alt="Scoop Icon">
+                                <span>Scoop</span>
+                            </div>
+                            <div class="slider-icon" data-icon-name="DuzyBen">
+                                <img src="images/slider/iconDuzyBenMono.png" alt="Duży Ben Icon">
+                                <span>Duży Ben</span>
+                            </div>
+                            <div class="slider-icon" data-icon-name="EasyInvoice">
+                                <img src="images/slider/iconEasyInvoiceMono.png" alt="EasyInvoice Icon">
+                                <span>EasyInvoice</span>
+                            </div>
+                            <div class="slider-icon" data-icon-name="Wage">
+                                <img src="images/slider/iconWageMono.png" alt="Wage Icon">
+                                <span>Wage</span>
+                            </div>
+                            <div class="slider-icon" data-icon-name="Fairtiq">
+                                <img src="images/slider/iconFairtiqMono.png" alt="Fairtiq Icon">
+                                <span>Fairtiq</span>
+                            </div>
+                            <div class="slider-icon" data-icon-name="AdNote">
+                                <img src="images/slider/iconAdNoteMono.png" alt="AdNote Icon">
+                                <span>AdNote</span>
+                            </div>
+                        </div>
+                        <div class="slider-text"></div>
+                    </div>
+                </div>
             </section>
 
             <section>
                 <h2 class="red">Contact me</h2>
 
                 <div class="icons">
-                    <a href="#"><img src="logoLinkedIn.png" alt="LinkedIn Logo"></a>
-                    <a href="#"><img src="logoTwitter.png" alt="Twitter Logo"></a>
-                    <a href="#"><img src="logoGitHub.png" alt="GitHub Logo"></a>
+                    <a href="#"><img src="images/logoLinkedIn.png" alt="LinkedIn Logo"></a>
+                    <a href="#"><img src="images/logoTwitter.png" alt="Twitter Logo"></a>
+                    <a href="#"><img src="images/logoGitHub.png" alt="GitHub Logo"></a>
                 </div>
             </section>
 
             <footer>
-                <img src="logoFooter.png" alt="Footer Logo">
+                <img src="images/logoFooter.png" alt="Footer Logo">
                 <p>&#169;<span class="year">2023</span></p>
             </footer>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="slider.js"></script>
 </body>
 
 </html>
