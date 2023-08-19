@@ -18,7 +18,7 @@ body {
     overflow: hidden;
     z-index: 2;
     text-align: center;
-    font-family: 'Menlo', sans-serif;
+    font-family: 'Menlo', monospace;
     font-weight: 600;
     color: #111111;
     padding: 32px 16px 0 16px;
@@ -50,12 +50,10 @@ h1 {
 }
 
 h2 {
-    font-family: 'Courier Bold', sans-serif;
+    font-family: 'Courier', monospace;
+    font-weight: 'Bold';
     font-size: 3em;
-    margin-bottom: 2em;
-    /* border-color: #9c2834;
-    border-width: 2px;
-    border-style: dashed; */
+    margin-bottom: 1em;
 }
 
 p {
@@ -71,7 +69,6 @@ p {
     display: flex;       /* Convert the container to a flex container */
     flex-direction: column;  /* Stack children vertically */
     align-items: center;    /* Center items horizontally */
-    justify-content: center; /* Optional: Center items vertically */
 }
 
 .icons a {
@@ -99,14 +96,16 @@ section {
 
 .iphone-slider {
     position: relative;
-    width: 200px;
-    height: 400px;
-        border-color: #9c2834;
+    width: 300pt;
+    height: 600pt;
+    margin: auto;
+    /* border-color: #9c2834;
     border-width: 2px;
-    border-style: dashed;
+    border-style: dashed; */
 }
 
 footer img {
+    width: 8em;
     margin-bottom: 2em;
 }
 
@@ -116,7 +115,10 @@ footer img {
 
 /* Small devices (phones, up to 480px) */
 @media only screen and (max-width: 480px) {
-    h1 { font-size: 2.1em; }
+    h1 { 
+        font-size: 2.1em;
+        margin-bottom: 2em;
+    }
     h2 {
         font-size: 2.2em; 
         margin-bottom: 1em;
@@ -138,13 +140,21 @@ footer img {
         height: 3em;
     }
     footer img {
-        width: 8em;
+        width: 4.5em;
+        margin-bottom: 1em;
+    }
+    .iphone-slider {
+        width: 250px;
+        height: 500px;
     }
 }
 
 /* Medium devices (tablets, 481px and up to 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-    h1 { font-size: 4em; }
+    h1 { 
+        font-size: 4em;
+        margin-bottom: 1.5em;
+    }
     h2 {
         font-size: 3em; 
         margin-bottom: 1.5em;
@@ -156,6 +166,14 @@ footer img {
         top: 6em;
         width: 192px;
         height: 192px;
+    }
+    footer img {
+        width: 8em;
+        margin-bottom: 1em;
+    }
+    .iphone-slider {
+        width: 300px;
+        height: 600px;
     }
 }
 

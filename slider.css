@@ -1,8 +1,3 @@
-.iphone-slider {
-    position: relative;
-    width: 300px;
-    height: 600px;
-}
 
 .iphone-slider .slider-frame {
     position: absolute;
@@ -10,30 +5,32 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 5;
+    z-index: 0;
 }
 
 .iphone-slider .slider-content {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    padding: calc(1/5 * 600px) 2% 0 2%;
 }
 
 .iphone-slider .slider-icon-container {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    padding-left: calc(1/13 * 100%);
+    padding-top: calc(2/5 * 100%);
+    padding-left: calc(1/26 * 100%);
+    padding-right: calc(1/26 * 100%);
 }
 
 .slider-icon {
     box-sizing: border-box;
     width: calc(2/13 * 100%);
-    margin-right: calc(1/13 * 100%);
-    margin-bottom: calc(1/26 * 600px);
+    margin-left: calc(2/26 * 100%);
+    margin-bottom: calc(1/26 * 100%);
     text-align: center;
+
 }
 
 .slider-icon img {
@@ -42,21 +39,49 @@
 }
 
 .iphone-slider .slider-icon span {
-    display: block;
+    display: flex;
+    justify-content: center;
     font-family: 'Menlo', monospace;
     font-weight: bold;
-    font-size: calc(0.03 * 300px);
+    font-size: 1em;
     color: black;
     text-align: center;
 }
 
 .iphone-slider .slider-text {
-    margin-top: calc(1/5 * 600px);
+    margin-top: calc(2/5 * 100%);
     padding-left: calc(1/13 * 100%);
-    padding-right: calc(2/13 * 100% + 1/13 * 100%);
+    padding-right: calc(1/13 * 100%);
     font-family: 'Menlo', monospace;
     font-weight: bold;
-    font-size: calc(0.04 * 300px);
+    font-size: 1.4em;
     color: black;
     text-align: left;
+}
+
+/* Small devices (phones, up to 480px) */
+@media only screen and (max-width: 480px) {
+    .iphone-slider .slider-icon span {
+        font-size: 0.5em;
+    }
+    
+    .iphone-slider .slider-text {
+        font-size: 0.7em;
+    }
+}
+
+/* Medium devices (tablets, 481px and up to 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .iphone-slider .slider-icon span {
+        font-size: 0.7em;
+    }
+    
+    .iphone-slider .slider-text {
+        font-size: 0.9em;
+    }
+}
+
+/* Large devices (desktops, 769px and up) */
+@media only screen and (min-width: 769px) {
+
 }
