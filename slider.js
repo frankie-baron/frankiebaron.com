@@ -11,12 +11,12 @@ const sliderIcons = document.querySelectorAll('.slider-icon');
 const sliderText = document.querySelector('.slider-text');
 
 const iconData = [
-    {name: 'Scoop', text: 'Scoop: A great app for news.'},
-    {name: 'DuzyBen', text: 'Duży Ben: A handy timer.'},
-    {name: 'EasyInvoice', text: 'EasyInvoice: Simplifying billing.'},
-    {name: 'Wage', text: 'Wage: Manage your salary.'},
-    {name: 'Fairtiq', text: 'Fairtiq: Swiss public transport made easy.'},
-    {name: 'AdNote', text: 'AdNote: Organize your notes.'}
+    {name: 'Scoop', text: 'Scoop: A great app for news.', url: 'https://apps.apple.com/us/app/scoop-mae/id971907235'},
+    {name: 'DuzyBen', text: 'Duży Ben: A handy timer.', url: 'https://apps.apple.com/pl/app/duży-ben/id1449706466'},
+    {name: 'EasyInvoice', text: 'EasyInvoice: Simplifying billing.', url: 'https://apps.apple.com/us/app/easy-invoice/id579897691'},
+    {name: 'Wage', text: 'Wage: Manage your salary.', url: 'https://apps.apple.com/us/app/wage-get-the-job-done/id1330725330'},
+    {name: 'Fairtiq', text: 'Fairtiq: Swiss public transport made easy.', url: 'https://apps.apple.com/ch/app/fairtiq/id1094360403?l=en'},
+    {name: 'AdNote', text: 'AdNote: Organize your notes.', url: 'https://apps.apple.com/pl/app/adnote/id1544405333?l=en'}
 ];
 
 let autoSlideInterval;
@@ -91,6 +91,15 @@ function updateIcons() {
     animateText(iconData[currentIndex].text);
 }
 
+function setIconUrls() {
+    sliderIcons.forEach((div, index) => {
+        const a = div.querySelector('a');
+        a.href = iconData[index].url
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+    });
+}
+
 function highlightIconOnHover(event) {
     isHovered = true;
     clearTimeout(hoverTimeout);
@@ -119,4 +128,5 @@ sliderIcons.forEach(div => {
 });
 
 updateIcons();
+setIconUrls();
 startAutoSlide();
