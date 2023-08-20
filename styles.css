@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevents horizontal scroll if there's any */
+    font-size: 30pt;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
     font-family: 'Menlo', monospace;
     font-weight: 600;
     color: #111111;
-    padding: 32px 16px 0 16px;
+    padding: 0 16px 0 16px;
 }
 
 #bubbles {
@@ -45,53 +46,20 @@ body {
 h1 {
     font-family: 'SF Pro', sans-serif;
     font-weight: bold;
-    line-height: 1.2;
-    font-size: 5em;
+
 }
 
 h2 {
-    font-family: 'Courier', monospace;
-    font-weight: 'Bold';
-    font-size: 3em;
-    margin-bottom: 1em;
+    font-family: 'Courier Bold', monospace;
+    margin-top: 0;
 }
 
 p {
-    font-size: 1.125em;
-    margin-bottom: 2em;
+    margin-top: 0;
 }
 
 .emoji {
-    font-size: 2em;
-}
-
-.icons {
-    display: flex;       /* Convert the container to a flex container */
-    flex-direction: column;  /* Stack children vertically */
-    align-items: center;    /* Center items horizontally */
-}
-
-.icons a {
-    margin: 1em 0;
-}
-
-section {
-    margin-bottom: 4em;
-}
-
-.about-section {
-    line-height: 2em;
-}
-
-.avatar-image {
-    position: absolute;
-    top: 8em;
-    left: 50%;
-    z-index: 3;
-    width: 256px;
-    height: 256px;
-    margin-right: 2em;
-    transform: translateX(-50%);
+    margin-bottom: 0;
 }
 
 .iphone-slider {
@@ -99,91 +67,196 @@ section {
     width: 300pt;
     height: 600pt;
     margin: auto;
-    /* border-color: #9c2834;
-    border-width: 2px;
-    border-style: dashed; */
 }
 
-footer img {
-    width: 8em;
-    margin-bottom: 2em;
+.icons {
+    display: flex;
+    flex-direction: column;
 }
 
-.year {
-    font-family: 'Menlo';
+.icons a:last-of-type {
+    margin: 0;
 }
 
 /* Small devices (phones, up to 480px) */
 @media only screen and (max-width: 480px) {
     h1 { 
-        font-size: 2.1em;
-        margin-bottom: 2em;
+        font-size: 24pt;
+        margin-top: 32pt;
+        margin-bottom: 32pt;
     }
     h2 {
-        font-size: 2.2em; 
-        margin-bottom: 1em;
+        font-size: 28pt; 
+        margin-bottom: 32pt;
     }
-    p, .about-section {
-        font-size: 0.95em;
-        line-height: 1.5em;
+    p, .about-section-content {
+        font-size: 12pt;
+        line-height: 22pt;
     }
     section {
-        margin-bottom: 2em;
+        margin-bottom: 32pt;
     }
+
+    .about-title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .avatar-image-container {
+        margin-bottom: 32pt;
+    }
+
     .avatar-image {
-        top: 4em;
-        width: 128px;
-        height: 128px;
+        width: 192pt;
     }
-    .icons a img {
-        width: 3em;
-        height: 3em;
+
+    .emoji {
+        font-size: 24pt;
     }
-    footer img {
-        width: 4.5em;
-        margin-bottom: 1em;
-    }
+
     .iphone-slider {
-        width: 250px;
-        height: 500px;
+        width: 200pt;
+        height: 400pt;
     }
+    
+    .icons a {
+        margin: 0 0 16pt 0;
+    }
+    
+    .icons a img {
+        width: 32pt;
+        height: auto;
+    }
+
+    footer img {
+        width: 64pt;
+    }
+
 }
 
 /* Medium devices (tablets, 481px and up to 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     h1 { 
-        font-size: 4em;
-        margin-bottom: 1.5em;
+        font-size: 40pt;
+        margin-top: 32pt;
+        margin-bottom: 32pt;
     }
     h2 {
-        font-size: 3em; 
-        margin-bottom: 1.5em;
+        font-size: 36pt; 
+        margin-bottom: 32pt;
+    }
+    p, .about-section-content {
+        font-size: 12pt;
+        line-height: 22pt;
     }
     section {
-        margin-bottom: 3em;
+        margin-bottom: 32pt;
     }
+
+    .about-title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .avatar-image-container {
+        margin-bottom: 32pt;
+    }
+
     .avatar-image {
-        top: 6em;
-        width: 192px;
-        height: 192px;
+        width: 192pt;
     }
-    footer img {
-        width: 8em;
-        margin-bottom: 1em;
+
+    .emoji {
+        font-size: 24pt;
     }
+
     .iphone-slider {
-        width: 300px;
-        height: 600px;
+        width: 256pt;
+        height: 512pt;
+    }
+    
+    .icons a {
+        margin: 0 0 16pt 0;
+    }
+    
+    .icons a img {
+        width: 32pt;
+        height: auto;
+    }
+
+    footer img {
+        width: 64pt;
     }
 }
 
 /* Large devices (desktops, 769px and up) */
 @media only screen and (min-width: 769px) {
-    h1 { font-size: 5em; }
-    h2 { font-size: 3.5em; }
+    h1 { 
+        font-size: 64pt;
+        margin-top: 32pt;
+        margin-bottom: 32pt;
+    }
+    h2 {
+        font-size: 48pt; 
+        margin-bottom: 32pt;
+    }
+    p, .about-section-content {
+        font-size: 12pt;
+        line-height: 22pt;
+    }
+    section {
+        margin-bottom: 32pt;
+    }
+
+    .about-title {
+        margin: 0 auto 32pt auto;
+    }
+
+   
+    .about-title-container {
+        display: block;
+    }
+
+    .avatar-image-container {
+        position: absolute;
+        height: 0;
+        width: 28%;
+        margin-bottom: 32pt;
+    }
+
     .avatar-image {
-        top: 8em;
-        width: 256px;
-        height: 256px;
+        width: 128pt;
+        transform: translateY(-20%);
+    }
+
+    .emoji {
+        font-size: 24pt;
+    }
+    .iphone-slider {
+        width: 256pt;
+        height: 512pt;
+    }
+    .icons a {
+        margin: 0 0 16pt 0;
+    }
+    .icons a img {
+        width: 42pt;
+        height: auto;
+    }
+    footer img {
+        width: 72pt;
+    }
+    
+}
+
+@media only screen and (min-width: 1440px) {
+    .avatar-image-container {
+        width: 40%;
+    }
+    .avatar-image {
+        width: 162pt;
+        transform: translateY(-30%);
     }
 }

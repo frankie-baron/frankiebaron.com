@@ -43,7 +43,6 @@
     justify-content: center;
     font-family: 'Menlo', monospace;
     font-weight: bold;
-    font-size: 1em;
     color: black;
     text-align: center;
 }
@@ -54,7 +53,6 @@
     padding-right: calc(1/13 * 100%);
     font-family: 'Menlo', monospace;
     font-weight: bold;
-    font-size: 1.4em;
     color: black;
     text-align: left;
 }
@@ -62,26 +60,32 @@
 /* Small devices (phones, up to 480px) */
 @media only screen and (max-width: 480px) {
     .iphone-slider .slider-icon span {
-        font-size: 0.5em;
+        font-size: 9pt;
     }
     
     .iphone-slider .slider-text {
-        font-size: 0.7em;
+        font-size: 11pt;
     }
 }
 
 /* Medium devices (tablets, 481px and up to 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
     .iphone-slider .slider-icon span {
-        font-size: 0.7em;
+        font-size: 11pt;
     }
     
     .iphone-slider .slider-text {
-        font-size: 0.9em;
+        font-size: 14pt;
     }
 }
 
 /* Large devices (desktops, 769px and up) */
 @media only screen and (min-width: 769px) {
-
+    .iphone-slider .slider-icon span {
+        font-size: 11pt;
+    }
+    
+    .iphone-slider .slider-text {
+        font-size: 14pt;
+    }
 }
