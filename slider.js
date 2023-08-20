@@ -1,9 +1,10 @@
 const SLIDE_INTERVAL = 4000;
+const APPEAR_TIME = 400;
 const DISAPPEAR_TIME = 300;
 const BREAK_TIME = 400;
 const IDLE_TIME = 2000;
 
-let currentIndex = 0;
+let currentIndex = -1;
 let isHovered = false;
 let hoverTimeout;
 
@@ -20,32 +21,56 @@ const iconData = [
 ];
 
 let autoSlideInterval;
+let slideClosureTimeout;
 let textAnimationTimeouts = [];
+
+function setIconUrls() {
+    sliderIcons.forEach((div, index) => {
+        const a = div.querySelector('a');
+        a.href = iconData[index].url
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+    });
+}
 
 function startAutoSlide() {
     stopAutoSlide();
+    performSlide();
     autoSlideInterval = setInterval(() => {
         if (!isHovered) {
-            hideText(() => {
-                clearHighlightedIcon();
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % iconData.length;
-                    updateIcons();
-                }, BREAK_TIME);
-            });
+            performSlide()
+        } else {
+            stopAutoSlide()
         }
     }, SLIDE_INTERVAL);
 }
 
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
+function performSlide() {
+        currentIndex = (currentIndex + 1) % iconData.length;
+        updateIconHighlight();
+        showText();
+        setSlideClosureTimeout(SLIDE_INTERVAL - DISAPPEAR_TIME - BREAK_TIME)
 }
 
-function animateText(text) {
+function setSlideClosureTimeout(timeout) {
+    slideClosureTimeout = setTimeout(() => {
+        hideText(() => {
+            clearIconHighlight();
+        }); 
+    }, timeout);
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+    clearTimeout(slideClosureTimeout);
+}
+
+function showText() {
+    let text = iconData[currentIndex].text
     let charIndex = 0;
     textAnimationTimeouts.forEach(clearTimeout);
     textAnimationTimeouts = [];
-    const timePerChar = (SLIDE_INTERVAL - DISAPPEAR_TIME - BREAK_TIME - IDLE_TIME) / text.length;
+    const timePerChar = APPEAR_TIME / text.length;
     for (let i = 0; i <= text.length; i++) {
         textAnimationTimeouts.push(setTimeout(() => {
             sliderText.textContent = text.substr(0, charIndex);
@@ -72,14 +97,14 @@ function hideText(callback) {
     }
 }
 
-function clearHighlightedIcon() {
+function clearIconHighlight() {
     sliderIcons.forEach((div, index) => {
         const img = div.querySelector('img');
         img.src = 'images/slider/icon' + iconData[index].name + 'Mono.png';
     });
 }
 
-function updateIcons() {
+function updateIconHighlight() {
     sliderIcons.forEach((div, index) => {
         const img = div.querySelector('img');
         if (index === currentIndex) {
@@ -88,38 +113,28 @@ function updateIcons() {
             img.src = 'images/slider/icon' + iconData[index].name + 'Mono.png';
         }
     });
-    animateText(iconData[currentIndex].text);
-}
-
-function setIconUrls() {
-    sliderIcons.forEach((div, index) => {
-        const a = div.querySelector('a');
-        a.href = iconData[index].url
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-    });
 }
 
 function highlightIconOnHover(event) {
     isHovered = true;
     clearTimeout(hoverTimeout);
+    stopAutoSlide();
     const iconName = event.currentTarget.getAttribute('data-icon-name');
     const hoveredIndex = iconData.findIndex(data => data.name === iconName);
+
     if (hoveredIndex !== currentIndex) {
-        stopAutoSlide();
         currentIndex = hoveredIndex;
-        updateIcons();
+        updateIconHighlight();
+        showText();
     }
 }
 
 function restartAutoSlideOnHoverEnd() {
     isHovered = false;
+    setSlideClosureTimeout(IDLE_TIME)
     hoverTimeout = setTimeout(() => {
-        hideText(() => {
-            clearHighlightedIcon();
-            setTimeout(startAutoSlide, BREAK_TIME + IDLE_TIME);
-        });
-    }, IDLE_TIME);
+        startAutoSlide()
+    }, IDLE_TIME + DISAPPEAR_TIME + BREAK_TIME)
 }
 
 sliderIcons.forEach(div => {
@@ -127,6 +142,5 @@ sliderIcons.forEach(div => {
     div.addEventListener('mouseout', restartAutoSlideOnHoverEnd);
 });
 
-updateIcons();
 setIconUrls();
 startAutoSlide();
