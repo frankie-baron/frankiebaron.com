@@ -5,6 +5,8 @@ html, body {
     font-size: 30pt;
 }
 
+
+
 body {
     background-color: #fffbe2;
 }
@@ -23,6 +25,11 @@ body {
     font-weight: 600;
     color: #111111;
     padding: 0 16px 0 16px;
+    -webkit-user-select: none; 
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    user-select: none;        
+    cursor: default; 
 }
 
 #bubbles {
@@ -55,7 +62,29 @@ h2 {
 }
 
 p {
-    margin-top: 0;
+    margin-top: 0;    
+}
+
+a, a span {
+    text-decoration: none;
+}
+
+img {
+    pointer-events: none;
+}
+
+h1, h2, p {
+    -webkit-user-select: auto; 
+    -moz-user-select: auto;    
+    -ms-user-select: auto;     
+    user-select: auto;    
+    cursor: auto; 
+}
+
+
+
+.avatar-image {
+    border-radius: 50%;
 }
 
 .emoji {
@@ -72,6 +101,16 @@ p {
 .icons {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grow-on-hover {
+    transform: scale(1);
+    transition: transform 0.1s linear; 
+}
+.icons a img {
+    border-radius: 22.5%;
 }
 
 .icons a:last-of-type {
@@ -134,6 +173,7 @@ p {
     }
 
 }
+
 
 /* Medium devices (tablets, 481px and up to 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -247,6 +287,7 @@ p {
     }
     footer img {
         width: 72pt;
+        margin-bottom: 16pt;
     }
     
 }

@@ -34,6 +34,7 @@
 }
 
 .slider-icon img {
+    border-radius: 22.5%;
     width: 100%;
     height: auto;
 }

@@ -50,3 +50,18 @@ function windowResized() {
     const contentWidth = document.getElementById('content').offsetWidth;
     resizeCanvas(contentWidth, contentHeight);
 }
+
+function setupGrowOnHover() {
+    document.querySelectorAll('.grow-on-hover').forEach(el => {
+    
+        el.addEventListener('mouseover', function() {
+            el.style.transform = `scale(1.1)`;
+        });
+    
+        el.addEventListener('mouseout', function() {
+            el.style.transform = `scale(1)`;
+        });
+    });
+}
+
+setupGrowOnHover()
