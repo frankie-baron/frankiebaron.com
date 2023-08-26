@@ -12,13 +12,14 @@ const sliderIcons = document.querySelectorAll('.slider-icon');
 const sliderText = document.querySelector('.slider-text');
 
 const iconData = [
-    {name: 'Scoop', text: 'Scoop: A great app for news.', url: 'https://apps.apple.com/us/app/scoop-mae/id971907235'},
-    {name: 'DuzyBen', text: 'Duży Ben: A handy timer.', url: 'https://apps.apple.com/pl/app/duży-ben/id1449706466'},
-    {name: 'EasyInvoice', text: 'EasyInvoice: Simplifying billing.', url: 'https://apps.apple.com/us/app/easy-invoice/id579897691'},
-    {name: 'Wage', text: 'Wage: Manage your salary.', url: 'https://apps.apple.com/us/app/wage-get-the-job-done/id1330725330'},
-    {name: 'Fairtiq', text: 'Fairtiq: Swiss public transport made easy.', url: 'https://apps.apple.com/ch/app/fairtiq/id1094360403?l=en'},
-    {name: 'AdNote', text: 'AdNote: Organize your notes.', url: 'https://apps.apple.com/pl/app/adnote/id1544405333?l=en'}
+    {name: 'Scoop', text: 'Scoop: A great tool to elevate your team\'s performance.', url: 'https://apps.apple.com/us/app/scoop-mae/id971907235'},
+    {name: 'DuzyBen', text: 'Duży Ben: Your favorite wines and spirits at the best prices.', url: 'https://apps.apple.com/pl/app/duży-ben/id1449706466'},
+    {name: 'EasyInvoice', text: 'Easy Invoice: All-in-one invoicing solution for small businesses.', url: 'https://apps.apple.com/us/app/easy-invoice/id579897691'},
+    {name: 'Wage', text: 'Wage: Helping people get their jobs done faster. ', url: 'https://apps.apple.com/us/app/wage-get-the-job-done/id1330725330'},
+    {name: 'Fairtiq', text: 'Fairtiq: Swiss public transport made easy. Over 118 million times.', url: 'https://apps.apple.com/ch/app/fairtiq/id1094360403?l=en'},
+    {name: 'AdNote', text: 'AdNote: Organizing your team\'s workflow.', url: 'https://apps.apple.com/pl/app/adnote/id1544405333?l=en'}
 ];
+
 
 let autoSlideInterval;
 let slideClosureTimeout;

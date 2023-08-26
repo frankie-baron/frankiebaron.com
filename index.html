@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frankiebaron.com</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="slider.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="preload" as="image" href="images/avatar.jpg">
+    <link rel="preload" as="script" href="script.js">
+    <script src="p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
             <section class="about-section">
                 <div class="about-title-container">
                     <div class="avatar-image-container">
-                        <img src="images/avatar.png" alt="Avatar" class="avatar-image">
+                        <img src="images/avatar.jpg" alt="Avatar" class="avatar-image" loading="eager">
                     </div>
                     <h2 class="yellow about-title">About me</h2>
                 </div>
@@ -33,7 +35,7 @@
                         Some say that creativity can cure even death. I do agree.</p>
                     <p>iOS has been a cozy playground since I bought my first iPhone 3G.</br>
                         This realm was always a truly welcoming space to me.</p>
-                    <p>These days my whole adult life revolves around professional iOS development</br>
+                    <p>These days my whole adult life revolves around professional iOS development.</br>
                         I aim to contribute to the emergence of something outstanding and meaningful.</br>
                         Whereas it is a new groundbreaking app, new technology, a product or a solution.</p>
                     <p>I enjoy working remotely and people matter to me the most.</br>
@@ -47,7 +49,7 @@
 
             <section>
                 <h2 class="blue">My contributions</h2>
-                <div class="iphone-slider">
+                <div id="iphone-slider">
                     <img src="images/slider/sliderFrame.png" class="slider-frame" alt="Slider Frame">
                     
                     <div class="slider-content">
@@ -98,9 +100,27 @@
                 <h2 class="red">Contact me</h2>
 
                 <div class="icons">
-                    <a href="https://www.linkedin.com/in/franciszek-baron"  target="_blank" rel="noopener noreferrer"><img src="images/logoLinkedIn.png" alt="LinkedIn Logo" class="grow-on-hover"></a>
-                    <a href="https://twitter.com/Frankie20376116"  target="_blank" rel="noopener noreferrer"><img src="images/logoTwitter.png" alt="Twitter Logo" class="grow-on-hover"></a>
-                    <a href="https://github.com/JackieHendrixon"  target="_blank" rel="noopener noreferrer"><img src="images/logoGitHub.png" alt="GitHub Logo" class="grow-on-hover"></a>
+                    <div class="icon-item grow-on-hover">
+                        <a href="mailto:hi@frankiebaron.com" target="_blank" rel="noopener noreferrer" >
+                            <img src="images/logoMail.png" alt="Mail Logo" >
+                        </a>
+                    </div>
+                    <div class="icon-item grow-on-hover">
+                        <a href="https://www.linkedin.com/in/franciszek-baron" target="_blank" rel="noopener noreferrer">
+                            <img src="images/logoLinkedIn.png" alt="LinkedIn Logo">
+                        </a>
+                    </div>
+                    <div class="icon-item grow-on-hover">
+                        <a href="https://twitter.com/Frankie20376116" target="_blank" rel="noopener noreferrer">
+                            <img src="images/logoTwitter.png" alt="Twitter Logo">
+                        </a>
+                    </div>
+                    <div class="icon-item grow-on-hover">
+                        <a href="https://github.com/JackieHendrixon" target="_blank" rel="noopener noreferrer">
+                            <img src="images/logoGitHub.png" alt="GitHub Logo">
+                        </a>
+                    </div>
+                    
                 </div>
             </section>
 
