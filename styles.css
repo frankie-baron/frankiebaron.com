@@ -1,3 +1,38 @@
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.eot");
+    src: url("https://db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/28adc6c6fd652123c3e173389a8be17f.svg#SF Pro Text Bold")format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Menlo";
+    src: url("https://db.onlinewebfonts.com/t/a6ffc5d72a96b65159e710ea6d258ba4.eot");
+    src: url("https://db.onlinewebfonts.com/t/a6ffc5d72a96b65159e710ea6d258ba4.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a6ffc5d72a96b65159e710ea6d258ba4.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a6ffc5d72a96b65159e710ea6d258ba4.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/a6ffc5d72a96b65159e710ea6d258ba4.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a6ffc5d72a96b65159e710ea6d258ba4.svg#Menlo Bold")format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: "Courier Bold";
+    src: url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.eot");
+    src: url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.svg#Courier New Bold")format("svg");
+} */
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -49,13 +84,14 @@ body {
 .blue { color: #214b70; }
 
 h1 {
-    font-family: 'SF Pro', sans-serif;
+    font-family: 'SF Pro Text', sans-serif;
     font-weight: bold;
 
 }
 
 h2 {
     font-family: 'Courier Bold', monospace;
+    font-weight: bold;
     margin-top: 0;
 }
 
@@ -81,6 +117,8 @@ h1, h2, p {
 
 .avatar-image {
     border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in; 
 }
 
 .emoji {
@@ -113,6 +151,20 @@ h1, h2, p {
 .icon-item:last-of-type {
     margin: 0;
 }
+
+#counter {
+    position: fixed;
+    display: block;
+    top: 16pt;
+    right: 16pt;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.2s linear; 
+    text-align: right;
+    font-size: 10pt;
+
+}
+
 
 /* Small devices (phones, up to 480px) */
 @media only screen and (max-width: 480px) {

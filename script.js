@@ -1,4 +1,5 @@
 let bubbles = [];
+
 const iphoneSlider = document.getElementById('iphone-slider');
 
 class Bubble {
@@ -95,6 +96,11 @@ function setup() {
     for (let i = 0; i < 12; i++) {
         colors.forEach(color => bubbles.push(new Bubble(color)));
     }
+
+    counter.setInitialAppearanceTimeout()
+    initialCounterAppearanceTimeout = setTimeout(() => {
+        counter.element.style.opacity = counter.INACTIVE_OPACITY
+    }, counter.INITIAL_APPEARANCE_DELAY)
 }
 
 function draw() {
@@ -124,6 +130,7 @@ function handleBubbleInteraction() {
             soundLoaded ? bubbleSound.play() : console.warn("The sound has not been loaded yet.");
             createLeftoverBubbles(bubbles[i]);
             bubbles[i].reset();
+            counter.increment();
             break;
         }
     }
@@ -138,10 +145,10 @@ function createLeftoverBubbles(originalBubble) {
         let maxDiameter = Math.sqrt((originalArea - accumulatedArea) / Math.PI) * 2;
         let newDiameter = random(Math.min(10, originalBubble.diameter / 2), maxDiameter / 2);
 
-        let bubble = new Bubble(random(colors), 
-                                random(originalBubble.x - originalBubble.diameter / 3, originalBubble.x + originalBubble.diameter / 3), 
-                                newDiameter, 
-                                random(2, 4));
+        let bubble = new Bubble(random(colors),
+            random(originalBubble.x - originalBubble.diameter / 3, originalBubble.x + originalBubble.diameter / 3),
+            newDiameter,
+            random(2, 4));
 
         bubble.y = random(originalBubble.y - originalBubble.diameter / 3, originalBubble.y + originalBubble.diameter / 3);
         bubble.isLeftover = true;
@@ -151,6 +158,40 @@ function createLeftoverBubbles(originalBubble) {
     }
 }
 
+class Counter {
+    INACTIVE_OPACITY = "0.05";
+    ACTIVE_OPACITY = "0.8";
+    INITIAL_APPEARANCE_DELAY = 10000
+    HIGHLIGHT_TIME = 1000
+
+    value = 0;
+    element = document.getElementById('counter');
+    initialAppearanceTimeout
+    fadeOutTimeout
+
+    setInitialAppearanceTimeout() {
+        this.initialAppearanceTimeout = setTimeout(() => {
+            poppedBubblesCounterElem.style.opacity = this.INACTIVE_OPACITY
+        }, this.INITIAL_APPEARANCE_DELAY)
+    }
+
+    increment() {
+        clearTimeout(this.initialAppearanceTimeout);
+        clearTimeout(this.fadeOutTimeout);
+
+        this.value++;
+        const formattedCounter = String(this.value).padStart(3, '0');
+        this.element.innerText = formattedCounter
+
+        this.element.style.opacity = this.ACTIVE_OPACITY
+        this.fadeOutTimeout = setTimeout(() => {
+            this.element.style.opacity = this.INACTIVE_OPACITY
+        }, this.HIGHLIGHT_TIME)
+    }
+}
+
+let counter = new Counter();
+
 function setupGrowOnHover() {
     document.querySelectorAll('.grow-on-hover').forEach(el => {
         el.addEventListener('mouseover', () => el.style.transform = 'scale(1.1)');
@@ -158,4 +199,13 @@ function setupGrowOnHover() {
     });
 }
 
+function setupAvatarFadeIn() {
+    const avatar = new Image();
+    avatar.src = "images/avatar.jpg";
+    avatar.onload = function () {
+        document.querySelector('img').style.opacity = "1";
+    }
+}
+
 setupGrowOnHover();
+setupAvatarFadeIn();

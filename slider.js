@@ -3,6 +3,7 @@ const APPEAR_TIME = 400;
 const DISAPPEAR_TIME = 300;
 const BREAK_TIME = 400;
 const IDLE_TIME = 2000;
+const ICONS_DIRECTORY = "images/slider/"
 
 let currentIndex = -1;
 let isHovered = false;
@@ -101,7 +102,7 @@ function hideText(callback) {
 function clearIconHighlight() {
     sliderIcons.forEach((div, index) => {
         const img = div.querySelector('img');
-        img.src = 'images/slider/icon' + iconData[index].name + 'Mono.png';
+        img.src = ICONS_DIRECTORY + 'icon' + iconData[index].name + 'Mono.png';
     });
 }
 
@@ -109,9 +110,9 @@ function updateIconHighlight() {
     sliderIcons.forEach((div, index) => {
         const img = div.querySelector('img');
         if (index === currentIndex) {
-            img.src = 'images/slider/icon' + iconData[index].name + 'Color.png';
+            img.src = ICONS_DIRECTORY + 'icon' + iconData[index].name + 'Color.png';
         } else {
-            img.src = 'images/slider/icon' + iconData[index].name + 'Mono.png';
+            img.src = ICONS_DIRECTORY + 'icon' + iconData[index].name + 'Mono.png';
         }
     });
 }
@@ -141,6 +142,8 @@ function restartAutoSlideOnHoverEnd() {
 sliderIcons.forEach(div => {
     div.addEventListener('mouseover', highlightIconOnHover);
     div.addEventListener('mouseout', restartAutoSlideOnHoverEnd);
+    div.addEventListener('touchstart', highlightIconOnHover);
+    div.addEventListener('touchend', restartAutoSlideOnHoverEnd);
 });
 
 setIconUrls();
