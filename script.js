@@ -1,12 +1,15 @@
 let bubbles = [];
+let tapMeBubble;
+let tapMeImage;
 let backgroundColor;
 
+const maxBubbleDiameter = 100
 const iphoneSlider = document.getElementById('iphone-slider');
 
 class Bubble {
     isLeftover = false;
 
-    constructor(color, x = random(width), diameter = random(10, 100), speedMultiplier = 1) {
+    constructor(color, x = random(width), diameter = random(10, maxBubbleDiameter), speedMultiplier = 1) {
         this.x = x;
         this.y = random(0, height);
         this.diameter = diameter;
@@ -37,6 +40,9 @@ class Bubble {
     reset() {
         this.y = height + this.diameter;
         this.x = random(width);
+        if (this === tapMeBubble) {
+            tapMeBubble = null
+        }
     }
 
     remove() {
@@ -85,6 +91,15 @@ function preload() {
             console.error("Error loading the sound file.", message);
         }
     });
+
+    tapMeImage = loadImage('images/tapMe.png',
+        () => {
+            console.log("Image loaded successfully.");
+        },
+        (e, message) => {
+            console.error("Error loading image file.", message);
+        }
+    );
 }
 
 function setup() {
@@ -117,12 +132,30 @@ function setCopyrightYear() {
     document.getElementById('copyright-year').textContent = "©" + currentYear;
 }
 
+function setTapMeBubble() {
+    do {
+        tapMeBubble = random(bubbles);
+    } while (tapMeBubble.diameter > maxBubbleDiameter / 3);
+}
+
 function draw() {
     background(backgroundColor);
     bubbles.forEach(bubble => {
         bubble.move();
         bubble.display();
     });
+
+    if (tapMeBubble && tapMeBubble.y + tapMeBubble.diameter / 2 > 0) {
+        const scaleFactor = tapMeBubble.diameter; // Scale based on the bubble's diameter
+        const imageWidth = tapMeImage.width * (scaleFactor / 100); // Adjust the scaling factor as needed
+        const imageHeight = tapMeImage.height * (scaleFactor / 100); // Adjust the scaling factor as needed
+
+        const imageX = tapMeBubble.x - imageWidth / 10; // Position the image to the right of the bubble
+        const imageY = tapMeBubble.y - imageHeight - tapMeBubble.diameter / 2 - 5; // Center the image vertically with the bubble
+        image(tapMeImage, imageX, imageY, imageWidth, imageHeight);
+    } else {
+        tapMeBubble = random(bubbles);
+    }
 }
 
 function windowResized() {
