@@ -1,4 +1,4 @@
-name: Trigger generate-pdf in Resume Repo
+name: Trigger generate-pdf in frankie-baron/resume repository
 
 on:
   push:
@@ -14,4 +14,4 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
           repository: frankie-baron/resume
-          event-type: website-push-event
+          event-type: trigger-generate-pdf-event
