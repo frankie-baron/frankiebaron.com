@@ -146,12 +146,11 @@ function draw() {
     });
 
     if (tapMeBubble && tapMeBubble.y + tapMeBubble.diameter / 2 > 0) {
-        const scaleFactor = tapMeBubble.diameter; // Scale based on the bubble's diameter
-        const imageWidth = tapMeImage.width * (scaleFactor / 100); // Adjust the scaling factor as needed
-        const imageHeight = tapMeImage.height * (scaleFactor / 100); // Adjust the scaling factor as needed
-
-        const imageX = tapMeBubble.x - imageWidth / 10; // Position the image to the right of the bubble
-        const imageY = tapMeBubble.y - imageHeight - tapMeBubble.diameter / 2 - 5; // Center the image vertically with the bubble
+        const scaleFactor = tapMeBubble.diameter; 
+        const imageWidth = tapMeImage.width * (scaleFactor / 100); 
+        const imageHeight = tapMeImage.height * (scaleFactor / 100); 
+        const imageX = tapMeBubble.x - imageWidth / 10; 
+        const imageY = tapMeBubble.y - imageHeight - tapMeBubble.diameter / 2 - 5;
         image(tapMeImage, imageX, imageY, imageWidth, imageHeight);
     } else {
         tapMeBubble = random(bubbles);

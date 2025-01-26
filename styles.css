@@ -22,17 +22,6 @@
     font-style: normal;
 }
 
-/* @font-face {
-    font-family: "Courier Bold";
-    src: url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.eot");
-    src: url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/f7764385034ca11a139b548aa1fa7522.svg#Courier New Bold")format("svg");
-} */
-
-
 html, body {
     margin: 0;
     padding: 0;
