@@ -14,4 +14,4 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
           repository: frankie-baron/resume
-          event-type: my-event
+          event-type: push-event
