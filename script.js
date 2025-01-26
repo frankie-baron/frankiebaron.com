@@ -1,4 +1,5 @@
 let bubbles = [];
+let backgroundColor;
 
 const iphoneSlider = document.getElementById('iphone-slider');
 
@@ -87,6 +88,7 @@ function preload() {
 }
 
 function setup() {
+    setupBackgroundColor()
     const contentElement = document.getElementById('content');
     const canvas = createCanvas(contentElement.offsetWidth, contentElement.scrollHeight);
     canvas.id('bubbles');
@@ -103,8 +105,14 @@ function setup() {
     }, counter.INITIAL_APPEARANCE_DELAY)
 }
 
+function setupBackgroundColor() {
+    const body = document.body;
+    const computedStyle = window.getComputedStyle(body);
+    backgroundColor = rgbToHex(computedStyle.backgroundColor);
+}
+
 function draw() {
-    background('#fffbe2');
+    background(backgroundColor);
     bubbles.forEach(bubble => {
         bubble.move();
         bubble.display();
@@ -156,6 +164,18 @@ function createLeftoverBubbles(originalBubble) {
         bubbles.push(bubble);
         accumulatedArea += Math.PI * (newDiameter / 2) ** 2;
     }
+}
+
+function rgbToHex(rgb) {
+    const result = rgb.match(/\d+/g);
+    if (!result) return null;
+
+    const hex = result.map(value => {
+        const hexValue = parseInt(value).toString(16);
+        return hexValue.length === 1 ? '0' + hexValue : hexValue;
+    });
+
+    return `#${hex.join('')}`;
 }
 
 class Counter {
