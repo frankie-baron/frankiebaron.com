@@ -88,7 +88,8 @@ function preload() {
 }
 
 function setup() {
-    setupBackgroundColor()
+    setupBackgroundColor();
+    setCopyrightYear();
     const contentElement = document.getElementById('content');
     const canvas = createCanvas(contentElement.offsetWidth, contentElement.scrollHeight);
     canvas.id('bubbles');
@@ -109,6 +110,11 @@ function setupBackgroundColor() {
     const body = document.body;
     const computedStyle = window.getComputedStyle(body);
     backgroundColor = rgbToHex(computedStyle.backgroundColor);
+}
+
+function setCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    document.getElementById('copyright-year').textContent = "©" + currentYear;
 }
 
 function draw() {
