@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger generate-pdf in Target Repo
-        uses: octokit/request-action@v2
+        uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/frankie-baron/Resume/dispatches
+          route: POST /repos/{owner}/Resume/dispatches
           owner: frankie-baron
           repo: Resume
           event_type: push_event
