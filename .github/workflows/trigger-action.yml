@@ -1,0 +1,21 @@
+name: Trigger generate-pdf in Resume Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger generate-pdf in Target Repo
+        uses: octokit/request-action@v2
+        with:
+          route: POST /repos/frankie-baron/Resume/dispatches
+          owner: frankie-baron
+          repo: Resume
+          event_type: push_event
+          # client_payload: '{"key": "value"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
